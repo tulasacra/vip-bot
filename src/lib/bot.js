@@ -321,6 +321,7 @@ class Bot {
     const outMsg = `
     \u26A0 !!! PRIVACY WARNING !!! \u26A0
 If you do not want people to have any indication of how many coins you have, use a new anonymous account to proceed.
+For additional privacy use CashFusion and then move the exact required token amount to a new address. Use your wallet's Freeze feature to prevent accidentally spending the tokens. 
 
     
     
@@ -346,6 +347,8 @@ If you obtain fewer tokens, it will take more time to aquire the required merit.
 A video walkthrough of how to join the VIP room can be found here:
 https://youtu.be/KOlM4dU6Gj0
 
+If you want to deploy this bot to your own channel the guide is at:
+https://read.cash/@tula_s/vip-bot-how-to-add-more-value-to-your-slp-tokens-f970dacc 
 
 
 Available commands:
