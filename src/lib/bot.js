@@ -327,7 +327,7 @@ For additional privacy use CashFusion and then move the exact required token amo
     
 The bot manages the VIP room. Only users who have verified they own token holdings with the required amount (Merit) are allowed to speak in the VIP room.
 
-To verify your merit, follow these steps:
+To verify your Merit, follow these steps:
 
 1) Get a wallet that is able to sign messages such as:
     https://message.fullstack.cash
@@ -339,15 +339,15 @@ To verify your merit, follow these steps:
   /verify <your BCH address> <The signed message>
 
 
-If the server enabled Merit aging then your 'Merit' is calculated this way:
+If the room admin enabled Merit aging then your 'Merit' is calculated this way:
 Merit = token quantity X token age (in days)
-If you obtain fewer tokens, it will take more time to aquire the required merit. If you obtain more, it takes less time.
+If you obtain fewer tokens, it will take more time to acquire the required merit. If you obtain more, it takes less time.
 
 
 A video walkthrough of how to join the VIP room can be found here:
 https://youtu.be/KOlM4dU6Gj0
 
-If you want to deploy this bot to your own channel the guide is at:
+If you want to deploy this bot to your own telegram room the guide is at:
 https://read.cash/@tula_s/vip-bot-how-to-add-more-value-to-your-slp-tokens-f970dacc 
 
 
