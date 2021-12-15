@@ -10,7 +10,7 @@
 module.exports = {
   session: 'secret-boilerplate-token',
   token: 'secret-jwt-token',
-  //database: 'mongodb://172.17.0.1:5555/tg-bot-server-prod',
-  database: process.env.DB_prod,  
+  // database: 'mongodb://172.17.0.1:5555/tg-bot-server-prod',
+  database: process.env.DB_prod,
   env: 'prod'
 }

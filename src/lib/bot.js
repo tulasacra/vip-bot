@@ -41,7 +41,7 @@ class Bot {
     // console.log(`this.token: ${this.token}, this.chatId: ${this.chatId}`)
 
     // Using constants here so they can be manipulated in tests.
-    //todo? test broken, PSF_THRESHOLD not constant
+    // todo? test broken, PSF_THRESHOLD not constant
     this.TWENTY_FOUR_HOURS = 60000 * 60 * 24
     this.PSF_THRESHOLD = process.env.MERIT_THRESHOLD ?? 30000
 
