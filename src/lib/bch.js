@@ -39,7 +39,7 @@ class Bch {
   async getMerit (slpAddr) {
     try {
       // Get the aggregated merit of the address.
-      console.log(`getMerit slpAddr: ${slpAddr} tokenId: ${process.env.TOKEN_ID}`)
+      //console.log(`getMerit slpAddr: ${slpAddr} tokenId: ${process.env.TOKEN_ID}`)
       const merit = await this.bchMsg.merit.agMerit(slpAddr, process.env.TOKEN_ID)
       console.log(`merit: ${merit}`)
 

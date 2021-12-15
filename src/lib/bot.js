@@ -319,28 +319,34 @@ class Bot {
   // Display help message to the user.
   async help (msg) {
     const outMsg = `
-The bot manages the VIP room for the PSF. Only users who have verified they own PSF tokens with the required Merit are allowed to speak in the VIP room.
+    !!! PRIVACY WARNING !!!
+If you do not want people to have any indication of how many coins you have, use a new anonymous account to proceed.
+
+    
+    
+The bot manages the VIP room. Only users who have verified they own token holdings with the required amount (Merit) are allowed to speak in the VIP room.
 
 To verify your merit, follow these steps:
 
-1) Go to https://message.fullstack.cash and create a wallet.
+1) Get a wallet that is able to sign messages such as:
+    https://message.fullstack.cash
+    https://electroncash.org/
 
 2) Use the 'Sign Message' area of the app to sign a the word 'verify'
 
 3) Use the /verify command to verify your wallet address, like this:
   /verify <your BCH address> <The signed message>
 
-4) Purchase PSF tokens at https://PSFoundation.cash or earn them by completing programming tasks (bounties can be found here: https://github.com/Permissionless-Software-Foundation/bounties). Send these tokens to your wallet address.
 
-Your 'Merit' is calculated this way:
+If the server enabled Merit aging then your 'Merit' is calculated this way:
 Merit = token quantity X token age (in days)
-
 If you obtain fewer tokens, it will take more time to aquire the required merit. If you obtain more, it takes less time.
 
-A video walkthrough of how to join the VIP room, as well as how to use other PSF communication channels can be found here:
+
+A video walkthrough of how to join the VIP room can be found here:
 https://youtu.be/KOlM4dU6Gj0
 
-If you need help, ask for guidence on @permissionless_software
+
 
 Available commands:
 
