@@ -319,7 +319,7 @@ class Bot {
   // Display help message to the user.
   async help (msg) {
     const outMsg = `
-    !!! PRIVACY WARNING !!!
+    \u26A0 !!! PRIVACY WARNING !!! \u26A0
 If you do not want people to have any indication of how many coins you have, use a new anonymous account to proceed.
 
     
@@ -332,7 +332,7 @@ To verify your merit, follow these steps:
     https://message.fullstack.cash
     https://electroncash.org/
 
-2) Use the 'Sign Message' area of the app to sign a the word 'verify'
+2) Use the 'Sign Message' area of the app to sign the word 'verify'
 
 3) Use the /verify command to verify your wallet address, like this:
   /verify <your BCH address> <The signed message>
