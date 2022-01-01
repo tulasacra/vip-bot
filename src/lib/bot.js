@@ -325,7 +325,7 @@ For additional privacy use CashFusion and then move the exact required token amo
 
     
     
-The bot manages the VIP room. Only users who have verified they own token holdings with the required amount (Merit) are allowed to speak in the VIP room.
+The bot manages the VIP room. Only users who have verified their own token holdings with the required amount (Merit) are allowed to speak in the VIP room.
 
 To verify your Merit, follow these steps:
 
@@ -357,7 +357,7 @@ Available commands:
     - Bring up this help message.
 
   /verify <BCH address> <signed message>
-    - Verify that you own the Bitcoin Cash address by signing a message. The bot will track the merit associated with this address.
+    - Verify that you own the Bitcoin Cash address by signing the word 'verify'. The bot will track the merit associated with this address.
 
   /revoke <BCH address>
     - Revoke ownership of a BCH address.
