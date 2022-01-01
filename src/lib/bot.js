@@ -97,7 +97,7 @@ class Bot {
         await newTgUser.save()
 
         // Delete their message.
-        await _this.bot.deleteMessage(_this.chatId, msg.message_id)
+        await _this._deleteMsg(msg)
 
         // TODO: Send greeting message.
 
@@ -107,7 +107,7 @@ class Bot {
 
       // Delete the users message if they haven't verified.
       if (!tgUser.hasVerified) {
-        await _this.bot.deleteMessage(_this.chatId, msg.message_id)
+        await _this._deleteMsg(msg)
         return 2 // Used for testing.
       }
 
@@ -431,6 +431,11 @@ Available commands:
   async _deleteMsgs (msg, botMsg) {
     await _this._deleteMsgQuietly(msg.chat.id, msg.message_id)
     await _this._deleteMsgQuietly(botMsg.chat.id, botMsg.message_id)
+  }
+
+  async _deleteMsg (msg) {
+    if (msg.chat.type !== 'supergroup') return
+    await _this._deleteMsgQuietly(msg.chat.id, msg.message_id)
   }
 
   async _deleteMsgQuietly (chatId, msgId) {
