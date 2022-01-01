@@ -206,7 +206,7 @@ class Bot {
           isValidSig = _this.bch.verifyMsg(verifyObj)
           // console.log(`Signature is valid: ${isValidSig}`)
         } catch (err) {
-          const botMsg = await _this.bot.sendMessage(_this.chatId, returnMsg)
+          const botMsg = await _this.bot.sendMessage(msg.chat.id, returnMsg)
 
           // Delete bot spam after some time.
           _this.deleteBotSpam(msg, botMsg)
@@ -229,7 +229,7 @@ class Bot {
           if (addressIsClaimed) {
             returnMsg = `@${addressIsClaimed} has already claimed that address. They must first revoke it with the /revoke command.`
 
-            const botMsg = await _this.bot.sendMessage(_this.chatId, returnMsg)
+            const botMsg = await _this.bot.sendMessage(msg.chat.id, returnMsg)
 
             // Delete bot spam after some time.
             _this.deleteBotSpam(msg, botMsg)
@@ -255,6 +255,7 @@ class Bot {
               msg.from.username
             } you have been successfully verified! You may now speak in the VIP room.`
             retVal = 2
+            /* const botMsg = */ await _this.bot.sendMessage(_this.chatId, returnMsg)
           } else {
             // Merit does not meet the threshold.
 
@@ -273,7 +274,7 @@ class Bot {
         }
       }
 
-      const botMsg = await _this.bot.sendMessage(_this.chatId, returnMsg)
+      const botMsg = await _this.bot.sendMessage(msg.chat.id, returnMsg)
 
       // Delete bot spam after some time.
       _this.deleteBotSpam(msg, botMsg)
