@@ -383,25 +383,30 @@ Available commands:
       // console.log(`getMerit message: ${JSON.stringify(msg, null, 2)}`)
 
       let retVal = 0 // default return value
+      let botMsg
 
       // Convert the message into an array of parts.
       const msgParts = msg.text.toString().split(' ')
 
-      const username = msgParts[1].substring(1)
-      // console.log(`username: ${username}`)
+      if (msgParts.length === 2) {
+        const username = msgParts[1].substring(1)
+        // console.log(`username: ${username}`)
 
-      const tgUser = await _this.TGUser.findOne({ username })
+        const tgUser = await _this.TGUser.findOne({ username })
 
-      let botMsg
-      if (!tgUser) {
-        botMsg = await _this.bot.sendMessage(msg.chat.id, 'User not found.')
+        if (!tgUser) {
+          botMsg = await _this.bot.sendMessage(msg.chat.id, 'User not found.')
+        } else {
+          retVal = 1
+          const merit = tgUser.merit
+          botMsg = await _this.bot.sendMessage(
+            msg.chat.id,
+            `User ${username} has a merit score of ${merit}`
+          )
+        }
       } else {
-        retVal = 1
-        const merit = tgUser.merit
-        botMsg = await _this.bot.sendMessage(
-          msg.chat.id,
-          `User ${username} has a merit score of ${merit}`
-        )
+        const retMsg = 'Wrong number of arguments.'
+        botMsg = await _this.bot.sendMessage(msg.chat.id, retMsg)
       }
 
       // Delete bot spam after some time.
@@ -496,6 +501,8 @@ Available commands:
             retVal = 4
           }
         }
+      } else {
+        retMsg = 'Wrong number of arguments.'
       }
 
       const botMsg = await _this.bot.sendMessage(msg.chat.id, retMsg)
