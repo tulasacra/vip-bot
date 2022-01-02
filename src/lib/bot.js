@@ -498,7 +498,7 @@ Available commands:
         }
       }
 
-      const botMsg = await _this.bot.sendMessage(retMsg)
+      const botMsg = await _this.bot.sendMessage(msg.chat.id, retMsg)
 
       // Delete bot spam after some time.
       _this.deleteBotSpam(msg, botMsg)
