@@ -363,8 +363,8 @@ Available commands:
   /revoke <BCH address>
     - Revoke ownership of a BCH address.
 
-  /merit @username
-    - Query the merit for a user in this channel.
+  /merit
+    - Query your merit.
 
   /list
     - List all the people in the channel that have enough merit to speak.
@@ -388,11 +388,11 @@ Available commands:
       // Convert the message into an array of parts.
       const msgParts = msg.text.toString().split(' ')
 
-      if (msgParts.length === 2) {
-        const username = msgParts[1].substring(1)
+      if (msgParts.length === 1) {
+        const username = msg.from.username
         // console.log(`username: ${username}`)
 
-        const tgUser = await _this.TGUser.findOne({ username })
+        const tgUser = await _this.TGUser.findOne({ tgId: msg.from.id })
 
         if (!tgUser) {
           botMsg = await _this.bot.sendMessage(msg.chat.id, 'User not found.')
