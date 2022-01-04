@@ -528,7 +528,7 @@ Available commands:
       for (let i = 0; i < users.length; i++) {
         const thisUser = users[i]
 
-        outStr += `@${thisUser.username}\n`
+        outStr += `@${thisUser.username ?? thisUser.tgId}\n`
       }
       outStr += '\n'
 
