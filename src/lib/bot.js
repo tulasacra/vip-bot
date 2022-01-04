@@ -337,7 +337,7 @@ To verify your Merit, follow these steps:
 2) Use the 'Sign Message' area of the app to sign the word 'verify'
 
 3) Use the /verify command to verify your wallet address, like this:
-  /verify <your BCH address> <The signed message>
+  /verify <your BCH address> <the signature>
 
 
 If the room admin enabled Merit aging then your 'Merit' is calculated this way:
@@ -357,7 +357,7 @@ Available commands:
   /help or /start
     - Bring up this help message.
 
-  /verify <BCH address> <signed message>
+  /verify <BCH address> <signature>
     - Verify that you own the Bitcoin Cash address by signing the word 'verify'. The bot will track the merit associated with this address.
 
   /revoke <BCH address>
