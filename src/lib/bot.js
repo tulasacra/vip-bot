@@ -145,7 +145,7 @@ class Bot {
             tgUser.merit
           }. Use the /verify command once your address has accrued enough merit.`
 
-          const botMsg = await _this.bot.sendMessage(_this.chatId, returnMsg)
+          const botMsg = await _this.bot.sendMessage(msg.chat.id, returnMsg)
 
           // Delete bot spam after some time.
           _this.deleteBotSpam(msg, botMsg)
