@@ -15,29 +15,29 @@ const jwtLib = new JwtLib({
   password: process.env.FULLSTACKPASS
 })
 
-let _this
+// let _this
 
 class TGBot {
   constructor (config) {
     // Instantiate the Telegram bot.
     this.bot = new Bot()
 
-    _this = this
+    // _this = this
   }
 
   async start () {
     // Get the JWT token needed to interact with the FullStack.cash API.
-    await this.getJwt()
+    // await this.getJwt()
     await this.bot.bot.stopPolling()
     this.bot = new Bot()
 
     // Renew the JWT token every 24 hours
-    setInterval(async function () {
+    /* setInterval(async function () {
       console.log('Updating FullStack.cash JWT token')
       await _this.getJwt()
       _this.bot.bot.stopPolling()
       _this.bot = new Bot()
-    }, 60000 * 60 * 24)
+    }, 60000 * 60 * 24) */
 
     return 'VIP Telegram bot started.'
   }
