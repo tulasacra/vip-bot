@@ -204,7 +204,7 @@ class Bot {
           // Enclose in a try/catch as verifyMsg() will throw an error for
           // invalid formatted signatures.
           isValidSig = _this.bch.verifyMsg(verifyObj)
-          // console.log(`Signature is valid: ${isValidSig}`)
+          if (process.env.VERBOSE_LOG === 1) console.log(`Signature is valid: ${isValidSig}`)
         } catch (err) {
           const botMsg = await _this.bot.sendMessage(msg.chat.id, returnMsg)
 
