@@ -7,10 +7,12 @@ const BCHJS = require('@psf/bch-js')
 const BchMessage = require('bch-message-lib')
 
 class Bch {
-  constructor (config) {
+  constructor (env) {
+    this.env = env
+
     // Encapsulate dependencies
     this.bchjs = new BCHJS()
-    this.bchMsg = new BchMessage({ bchjs: this.bchjs })
+    this.bchMsg = new BchMessage({ bchjs: this.bchjs }, env)
   }
 
   // Verify that the signed message 'verify' was signed by a specific BCH address.
