@@ -7,12 +7,10 @@ const BCHJS = require('@psf/bch-js')
 const BchMessage = require('bch-message-lib')
 
 class Bch {
-  constructor (env) {
-    this.env = env
-
+  constructor () {
     // Encapsulate dependencies
     this.bchjs = new BCHJS()
-    this.bchMsg = new BchMessage({ bchjs: this.bchjs }, env)
+    this.bchMsg = new BchMessage({ bchjs: this.bchjs }, process.env)
   }
 
   // Verify that the signed message 'verify' was signed by a specific BCH address.
@@ -41,7 +39,7 @@ class Bch {
   async getMerit (slpAddr) {
     try {
       // Get the aggregated merit of the address.
-      // console.log(`getMerit slpAddr: ${slpAddr} tokenId: ${process.env.TOKEN_ID}`)
+      if (process.env.VERBOSE_LOG >= 1) console.log(`getMerit slpAddr: ${slpAddr} tokenId: ${process.env.TOKEN_ID}`)
       const merit = await this.bchMsg.merit.agMerit(slpAddr, process.env.TOKEN_ID)
       console.log(`merit: ${merit}`)
 
