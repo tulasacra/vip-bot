@@ -564,7 +564,7 @@ Available commands:
 
         totalMerit += thisUser.merit
       }
-      outStr += `verified users: @${users.length}\n`
+      outStr += `verified users: ${users.length}\n`
       outStr += `total merit: ${totalMerit}\n`
 
       // console.log(`${outStr}`)
