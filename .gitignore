@@ -65,3 +65,4 @@ system-user-*.json
 vip-bot.sh
 
 !README.md
+.vs/slnx.sqlite
