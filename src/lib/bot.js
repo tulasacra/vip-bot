@@ -62,6 +62,7 @@ class Bot {
     this.bot.onText(/\/merit/, this.getMerit)
     this.bot.onText(/\/revoke/, this.revoke)
     this.bot.onText(/\/list/, this.list)
+    this.bot.onText(/\/stats/, this.stats)
 
     // Used for debugging.
     // setInterval(function () {
@@ -371,6 +372,9 @@ Available commands:
 
   /list
     - List all the people in the channel that have enough merit to speak.
+
+  /stats
+    - Return bot statistics (number of verified users and the sum of their merit).
 `
 
     const botMsg = await _this.bot.sendMessage(msg.chat.id, outMsg)
@@ -543,6 +547,32 @@ Available commands:
       _this.deleteBotSpam(msg, botMsg)
     } catch (err) {
       wlogger.error('Error in bot.js/list(): ', err)
+    }
+  }
+
+  async stats (msg) {
+    try {
+      const users = await _this.TGUser.find({ hasVerified: true })
+      // console.log(`users: ${JSON.stringify(users, null, 2)}`)
+
+      let outStr = ''
+      let totalMerit = 0
+      for (let i = 0; i < users.length; i++) {
+        const thisUser = users[i]
+
+        totalMerit += thisUser.merit
+      }
+      outStr += outStr += `verified users: @${users.length}\n`
+      outStr += outStr += `total merit: @${totalMerit}\n`
+
+      // console.log(`${outStr}`)
+
+      /* const botMsg = */await _this.bot.sendMessage(msg.chat.id, outStr)
+
+      // Delete bot spam after some time.
+      // _this.deleteBotSpam(msg, botMsg)
+    } catch (err) {
+      wlogger.error('Error in bot.js/stats(): ', err)
     }
   }
 }
