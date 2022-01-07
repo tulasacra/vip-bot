@@ -375,6 +375,8 @@ Available commands:
 
   /stats
     - Return bot statistics (number of verified users and the sum of their merit).
+
+
 `
 
     const botMsg = await _this.bot.sendMessage(msg.chat.id, outMsg)
@@ -562,8 +564,8 @@ Available commands:
 
         totalMerit += thisUser.merit
       }
-      outStr += outStr += `verified users: @${users.length}\n`
-      outStr += outStr += `total merit: @${totalMerit}\n`
+      outStr += `verified users: @${users.length}\n`
+      outStr += `total merit: ${totalMerit}\n`
 
       // console.log(`${outStr}`)
 
