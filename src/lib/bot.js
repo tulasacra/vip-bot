@@ -120,6 +120,8 @@ class Bot {
       if (timeDiff > _this.TWENTY_FOUR_HOURS) {
         wlogger.debug('More than 24 hours since user was verified.')
 
+        tgUser.username = msg.from.username
+
         // Update the merit.
         tgUser.merit = await _this.bch.getMerit(tgUser.slpAddr)
         wlogger.debug(
@@ -238,6 +240,7 @@ class Bot {
           }
 
           // Calculate values to store in the tg-user model for this user.
+          tgUser.username = msg.from.username
           tgUser.bchAddr = bchAddr
           tgUser.slpAddr = _this.bch.bchjs.SLP.Address.toSLPAddress(
             tgUser.bchAddr
