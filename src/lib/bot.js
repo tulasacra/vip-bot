@@ -74,6 +74,12 @@ class Bot {
     _this = this
   }
 
+  async _sendDeletionNotification (msg) {
+    var returnMsg = 'Your message has been deleted.\nTo start your verification process use the command \'/start\'.\n\n' + msg.text
+
+    await _this.bot.sendMessage(msg.from.id, returnMsg)
+  }
+
   // Process general messages. The workflow of this method is as follows:
   // - If the user of the message is not in the database, create a new model.
   // - If the user of the message is not verified, delete their message.
@@ -99,8 +105,7 @@ class Bot {
 
         // Delete their message.
         await _this._deleteMsg(msg)
-
-        // TODO: Send greeting message.
+        await _this._sendDeletionNotification(msg)
 
         // Exit function.
         return 1 // Used for testing.
@@ -109,6 +114,8 @@ class Bot {
       // Delete the users message if they haven't verified.
       if (!tgUser.hasVerified) {
         await _this._deleteMsg(msg)
+        await _this._sendDeletionNotification(msg)
+
         return 2 // Used for testing.
       }
 
