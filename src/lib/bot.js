@@ -75,9 +75,16 @@ class Bot {
   }
 
   async _sendDeletionNotification (msg) {
-    var returnMsg = 'Your message has been deleted.\nTo start your verification process use the command \'/start\'.\n\n' + msg.text
+    if (msg.chat.type !== 'supergroup') return
 
-    await _this.bot.sendMessage(msg.from.id, returnMsg)
+    var returnMsg = `Your message has been deleted.\nTo start your verification process use the command '/start'.\n\n"${msg.text}"`
+    try {
+      await _this.bot.sendMessage(msg.from.id, returnMsg)
+    } catch (e) {
+      // 403 Forbidden: bot can't initiate conversation with a user
+      // 403 Forbidden: bot was blocked by the user
+      wlogger.debug('Unable to send deletion notification.')
+    }
   }
 
   // Process general messages. The workflow of this method is as follows:
