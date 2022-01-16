@@ -110,6 +110,9 @@ class Bot {
         const newTgUser = new _this.TGUser(newUserData)
         await newTgUser.save()
 
+        // new_chat_participant
+        if (!msg.text) return 1
+
         // Delete their message.
         await _this._deleteMsg(msg)
         await _this._sendDeletionNotification(msg)
