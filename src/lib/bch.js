@@ -4,13 +4,15 @@
 
 // Public npm libraries
 const BCHJS = require('@psf/bch-js')
-const BchMessage = require('bch-merit-lib')
+const BchMerit = require('bch-merit-lib')
+const BchWallet = require('minimal-slp-wallet/index')
 
 class Bch {
   constructor () {
     // Encapsulate dependencies
     this.bchjs = new BCHJS()
-    this.bchMsg = new BchMessage({ bchjs: this.bchjs }, process.env)
+    this.wallet = new BchWallet(undefined, { noUpdate: true, interface: 'rest-api' })
+    this.bchMerit = new BchMerit({ wallet: this.wallet })
   }
 
   // Verify that the signed message 'verify' was signed by a specific BCH address.
@@ -40,7 +42,7 @@ class Bch {
     try {
       // Get the aggregated merit of the address.
       if (process.env.VERBOSE_LOG >= 1) console.log(`getMerit slpAddr: ${slpAddr} tokenId: ${process.env.TOKEN_ID}`)
-      const merit = await this.bchMsg.merit.agMerit(slpAddr, process.env.TOKEN_ID)
+      const merit = await this.bchMerit.merit.agMerit(slpAddr, process.env.TOKEN_ID)
       console.log(`merit: ${merit}`)
 
       return merit
