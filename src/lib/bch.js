@@ -4,7 +4,7 @@
 
 // Public npm libraries
 const BCHJS = require('@psf/bch-js')
-const BchMessage = require('bch-message-lib')
+const BchMessage = require('bch-merit-lib')
 
 class Bch {
   constructor () {
