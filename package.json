@@ -32,7 +32,7 @@
     "@psf/bch-js": "^4.17.0",
     "apidoc": "^0.23.0",
     "axios": "^0.21.1",
-    "bch-merit-lib": "git://github.com/scinklja/bch-merit-lib.git",
+    "bch-merit-lib": "git://github.com/scinklja/bch-merit-lib.git#master",
     "bcryptjs": "^2.4.3",
     "glob": "^7.0.0",
     "jsonwebtoken": "^8.3.0",
