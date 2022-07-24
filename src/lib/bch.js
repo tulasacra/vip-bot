@@ -12,7 +12,7 @@ class Bch {
     // Encapsulate dependencies
     this.bchjs = new BCHJS()
     this.wallet = new BchWallet(undefined, { noUpdate: true, interface: 'rest-api' })
-    this.bchMerit = new BchMerit({ wallet: this.wallet })
+    this.bchMerit = new BchMerit({ wallet: this.wallet, env: process.env })
   }
 
   // Verify that the signed message 'verify' was signed by a specific BCH address.
