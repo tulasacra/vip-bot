@@ -11,7 +11,11 @@ class Bch {
   constructor () {
     // Encapsulate dependencies
     this.bchjs = new BCHJS()
-    this.wallet = new BchWallet(undefined, { noUpdate: true, interface: 'rest-api' })
+    this.wallet = new BchWallet(undefined, {
+      noUpdate: true,
+      interface: 'consumer-api',
+      restURL: 'https://free-bch.fullstack.cash'
+    })
     this.bchMerit = new BchMerit({ wallet: this.wallet, env: process.env })
   }
 
